@@ -41,7 +41,7 @@ class Navbar extends Component {
                 <div className="dropdown">
                     <ul>
                     <li>Small</li>
-                    <li><a onClick={this.mediumData}>Medium</a></li>
+                    <li>Medium</li>
                     <li>Large</li>
                     </ul>
                 </div>
