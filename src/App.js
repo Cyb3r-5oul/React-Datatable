@@ -39,7 +39,7 @@ class App extends Component {
 
     while (response[i]) {
       arrm.push(response[i])
-      console.log(arrm[i])
+
       i+=1
     }
     this.setState({medium: arrm})
@@ -55,7 +55,7 @@ class App extends Component {
 
     while (response[i]) {
       arrl.push(response[i])
-      console.log(arrl[i])
+      
       i+=1
     }
     this.setState({large: arrl})
