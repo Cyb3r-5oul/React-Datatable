@@ -10,6 +10,7 @@ class Navbar extends Component {
     state = {
         data: "small",
         searchRes: [{}],
+        results: false,
         open: false,
     };
 
@@ -37,8 +38,8 @@ class Navbar extends Component {
     }
 
     clicked = (option) => {
-        if(this.state.searchRes[0].id){
-            this.setState({searchRes: [{}]})
+        if(this.state.results){
+            this.setState({results: false})
         }
         this.setState({data: option})
         //this.setState({data: "small"})
@@ -60,6 +61,7 @@ class Navbar extends Component {
                 }
                 i+=1
             }this.setState({searchRes: this.searchResults})
+            this.setState({results: true})
         }
         else if (this.state.data == "medium"){
             var i = 0
@@ -70,6 +72,7 @@ class Navbar extends Component {
                 }
                 i+=1
             }this.setState({searchRes: this.searchResults})
+            this.setState({results: true})
         }
         else if (this.state.data == "large"){
             var i = 0
@@ -80,6 +83,7 @@ class Navbar extends Component {
                 }
                 i+=1
             }this.setState({searchRes: this.searchResults})
+            this.setState({results: true})
         }
     }
 
@@ -88,7 +92,7 @@ class Navbar extends Component {
         //let search = React.createElement("input", {id: "searchbar", placeholder: "Search"})
 
         if(this.state.data == 'small') {
-            if (this.state.searchRes[0].id){
+            if (this.state.results){
                 console.log(this.state.searchRes)
                 dat = <Table values={this.state.searchRes}></Table> 
             }
@@ -97,7 +101,7 @@ class Navbar extends Component {
             }
         }
         else if (this.state.data == "medium") {
-            if (this.state.searchRes[0].id){
+            if (this.state.results){
                 console.log(this.state.searchRes)
                 dat = <Table values={this.state.searchRes}></Table> 
             }
@@ -106,7 +110,7 @@ class Navbar extends Component {
             }
         }
         else if (this.state.data == "large") {
-            if (this.state.searchRes[0].id){
+            if (this.state.results){
                 console.log(this.state.searchRes)
                 dat = <Table values={this.state.searchRes}></Table> 
             }
