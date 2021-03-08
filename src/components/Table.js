@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-import fetchData from './fetchData'
+//import fetchData from './fetchData'
 //import Rows from './Rows'
 
 var arr = []
@@ -11,11 +11,11 @@ const Table = (props) => {
     //console.log(values[0])
     console.log('hi')
 
-    var x = React.createElement("h4", null, "New react element")
+    //var x = React.createElement("h4", null, "New react element")
 
     arr = props.values
 
-    var i = 0
+   
 
     return (   
         <div>
