@@ -41,24 +41,25 @@ const Table = (props) => {
                     </div>
                 </div>
 
-                {arr.map((val) => 
-                <div className="Row">
-                    <div className="Cell">
+                {arr.map((val, i) => 
+                
+                <div className="Row" key={i}>
+                    <div className="Cell" >
                         <p>{val.id}</p>
                     </div>
-                    <div className="Cell">
+                    <div className="Cell" >
                         <p>{val.firstName}</p>
                     </div>
-                    <div className="Cell">
+                    <div className="Cell" >
                         <p>{val.lastName}</p>
                     </div>
-                    <div className="Cell">
+                    <div className="Cell" >
                         <p>{val.location}</p>
                     </div>
-                    <div className="Cell">
+                    <div className="Cell" >
                         <p>{val.date}</p>
                     </div>
-                    <div className="Cell">
+                    <div className="Cell" >
                         <p>{val.salary}</p>
                     </div>
                 </div>  )}
