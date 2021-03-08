@@ -77,7 +77,7 @@ class App extends Component {
 
         <Navbar small={this.state.values} medium={this.state.medium} large={this.state.large}/>
 
-        <Table values={this.state.values} />
+        
 
       </div>
     )  
@@ -88,3 +88,4 @@ class App extends Component {
 
 export default App;
 
+//<Table values={this.state.values} />
