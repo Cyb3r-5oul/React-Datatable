@@ -175,3 +175,7 @@ li:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
 }
+
+#searchbar {
+  width: 400px;
+}

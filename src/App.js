@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //import fetchData from './components/fetchData'
 
-import Table from './components/Table'
+//import Table from './components/Table'
 
 import Navbar from './components/Navbar'
 
@@ -76,8 +76,6 @@ class App extends Component {
       <div>
 
         <Navbar small={this.state.values} medium={this.state.medium} large={this.state.large}/>
-
-        
 
       </div>
     )  

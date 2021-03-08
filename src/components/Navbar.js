@@ -9,7 +9,7 @@ class Navbar extends Component {
 
     state = {
         data: "small",
-
+        searchRes: [{}],
         open: false,
     };
 
@@ -37,22 +37,84 @@ class Navbar extends Component {
     }
 
     clicked = (option) => {
+        if(this.state.searchRes[0].id){
+            this.setState({searchRes: [{}]})
+        }
         this.setState({data: option})
         //this.setState({data: "small"})
         console.log(this.state.data)
     }
 
+    searchResults = []
+
+    search = e => {
+        console.log(e.target.value)
+        this.setState({searchRes: []})
+        this.searchResults = []
+        if (this.state.data == "small"){
+            var i = 0
+            while(this.props.small[i]){
+                if(this.props.small[i].firstName.includes(e.target.value) || this.props.small[i].lastName.includes(e.target.value)) {
+                    this.searchResults.push(this.props.small[i]) 
+                    //console.log(this.searchResults)
+                }
+                i+=1
+            }this.setState({searchRes: this.searchResults})
+        }
+        else if (this.state.data == "medium"){
+            var i = 0
+            while(this.props.medium[i]){
+                if(this.props.medium[i].firstName.includes(e.target.value) || this.props.medium[i].lastName.includes(e.target.value)) {
+                    this.searchResults.push(this.props.medium[i]) 
+                    //console.log(this.searchResults)
+                }
+                i+=1
+            }this.setState({searchRes: this.searchResults})
+        }
+        else if (this.state.data == "large"){
+            var i = 0
+            while(this.props.large[i]){
+                if(this.props.large[i].firstName.includes(e.target.value) || this.props.large[i].lastName.includes(e.target.value)) {
+                    this.searchResults.push(this.props.large[i]) 
+                    //console.log(this.searchResults)
+                }
+                i+=1
+            }this.setState({searchRes: this.searchResults})
+        }
+    }
+
     render() {
         let dat
+        //let search = React.createElement("input", {id: "searchbar", placeholder: "Search"})
+
         if(this.state.data == 'small') {
-            dat = <Table values={this.props.small}></Table> 
+            if (this.state.searchRes[0].id){
+                console.log(this.state.searchRes)
+                dat = <Table values={this.state.searchRes}></Table> 
+            }
+            else {
+                dat = <Table values={this.props.small}></Table> 
+            }
         }
         else if (this.state.data == "medium") {
-            dat = <Table values={this.props.medium}></Table> 
+            if (this.state.searchRes[0].id){
+                console.log(this.state.searchRes)
+                dat = <Table values={this.state.searchRes}></Table> 
+            }
+            else {
+                dat = <Table values={this.props.medium}></Table> 
+            }
         }
         else if (this.state.data == "large") {
-            dat = <Table values={this.props.large}></Table> 
+            if (this.state.searchRes[0].id){
+                console.log(this.state.searchRes)
+                dat = <Table values={this.state.searchRes}></Table> 
+            }
+            else {
+                dat = <Table values={this.props.large}></Table> 
+            }
         }
+
         return (
             <div>
             <div className="container" ref={this.container}>
@@ -68,8 +130,11 @@ class Navbar extends Component {
                     </ul>
                 </div>
                 )}
+                
             </div>
             
+            <input type="text" id="searchbar" placeholder="Search" onChange={this.search}></input>
+
             {dat}
             
             </div>
